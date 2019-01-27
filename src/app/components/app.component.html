@@ -1,0 +1,44 @@
+<div>
+
+  <form  (ngSubmit)="onSubmit()" >
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input id="name" type="text" [(ngModel)]="name" name="name" required />
+    </div>
+
+    <div class="form-group">
+      <label for="human">Human</label>
+      <input id="human" name="type" [(ngModel)]="type" value="HUMAN" type="radio" required/>
+    </div>
+
+    <div class="form-group"><label for="animal">Animal</label>
+      <input id="animal" name="type" [(ngModel)]="type" value="ANIMAL" type="radio" required/>
+    </div>
+
+    <div class="form-group">
+      <button type="submit">Ajouter</button>
+    </div>
+
+    <div class="row">
+      <div class="column">
+          <ol>
+              <li *ngFor="let animal of animals$ | async">
+                {{animal.name}}
+                <button (click)="deleteAnimal(animal)">X</button>
+              </li>
+          </ol>
+      </div>
+
+      <div class="column">
+          <ol>
+              <li *ngFor="let human of humans$ | async">
+                  {{human.name}}
+                  <button (click)="deleteHuman(human)">X</button>
+              </li>
+            </ol>
+      </div>
+
+    </div>
+
+  </form>
+</div>
