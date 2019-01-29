@@ -1,10 +1,4 @@
-import {
-  ActionReducerMap,
-  createSelector,
-  createFeatureSelector,
-  ActionReducer,
-  MetaReducer
-} from "@ngrx/store";
+import { ActionReducerMap } from "@ngrx/store";
 
 import { HumanModel } from "../models/human.model";
 import { AnimalModel } from "../models/animal.model";

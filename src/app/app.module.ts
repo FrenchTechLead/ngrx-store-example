@@ -14,7 +14,7 @@ import { reducers } from "./reducers/_index";
     FormsModule,
     StoreModule.forRoot(reducers),
     StoreDevtoolsModule.instrument({
-      maxAge: 5
+      maxAge: 10
     })
   ],
   providers: [],
