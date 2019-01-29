@@ -14,7 +14,7 @@ import { AddAnimal, DeleteAnimal } from "../actions/animal.action";
 })
 export class AppComponent {
   name: string;
-  type: string;
+  species: string;
   animals$: Observable<AnimalModel[]>;
   humans$: Observable<HumanModel[]>;
 
@@ -24,20 +24,28 @@ export class AppComponent {
   }
 
   onSubmit(): void {
-    if (this.type === "HUMAN") {
+    if (this.species === "HUMAN") {
       const human: HumanModel = new HumanModel(this.name);
-      this.store.dispatch(new AddHuman(human));
-    } else if (this.type === "ANIMAL") {
+      this.addHuman(human);
+    } else if (this.species === "ANIMAL") {
       const animal: AnimalModel = new AnimalModel(this.name);
-      this.store.dispatch(new AddAnimal(animal));
+      this.addAnimal(animal);
     }
   }
 
-  deleteAnimal(animal: AnimalModel): void {
-    this.store.dispatch(new DeleteAnimal(animal));
+  addHuman(human: HumanModel): void {
+    this.store.dispatch(new AddHuman(human));
+  }
+
+  addAnimal(animal: AnimalModel): void {
+    this.store.dispatch(new AddAnimal(animal));
   }
 
   deleteHuman(human: HumanModel): void {
     this.store.dispatch(new DeleteHuman(human));
+  }
+
+  deleteAnimal(animal: AnimalModel): void {
+    this.store.dispatch(new DeleteAnimal(animal));
   }
 }
